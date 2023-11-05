@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2023_10_08_135914) do
   end
 
   create_table "reservations", force: :cascade do |t|
+    t.date "day"
+    t.string "time"
     t.string "user_id"
     t.string "car_id"
     t.date "start_time"

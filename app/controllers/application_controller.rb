@@ -1,5 +1,18 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  
+  def index
+    @user = current_user
+  end
+
+  def after_sign_in_path_for(resource)
+    cars_index_path(resource)
+  end
+  
+  def after_sign_out_path_for(resource)
+    flash[:notice] = "ログアウトしました"  # flashメッセージの追加もできます
+    root_path
+  end
 
   protected
 

@@ -12,13 +12,15 @@
 
   <body>
     <header>
-      <div><%= link_to root_path do %><img src="/assets/header.png" alt="logo" id="logo"><% end %></div>
       <% if current_user.present? %>
-        <div><%= link_to "トップ", root_path, class: "text-white" %></div>
-        <div><%= link_to "社用車一覧", class: "text-white" %></div>
-        <div><%= link_to "予約一覧", class: "text-white" %></div>
-        <div><%= link_to "様", class: "text-white" %></div>
+        <div><%= link_to cars_index_path do %><img src="/assets/header.png" alt="logo" id="logo"><% end %></div>
+        <div><%= link_to "トップ", cars_index_path, class: "text-white" %></div>
+        <div><%= link_to "社用車一覧", cars_index_path, class: "text-white" %></div>
+        <div><%= link_to "予約一覧", users_show_path, class: "text-white" %></div>
+        <div><%= link_to "プロフィール", users_show_path,  class: "text-white" %></div>
+        <div><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></div>
       <% else %>
+        <div><%= link_to root_path do %><img src="/assets/header.png" alt="logo" id="logo"><% end %></div>
         <div><%= link_to "ログイン", new_user_session_path, class: "text-white" %></div>
         <div><%= link_to "新規登録", new_user_registration_path, class: "text-white" %></div>
       <% end %>
