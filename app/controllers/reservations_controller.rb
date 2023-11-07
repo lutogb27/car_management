@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
   def show
     @user = current_user
     @car = @reservation.car
-    @reservation = Reservation.find(params[:id])
+    @reservations = Reservation.all
   end
 
   def create
@@ -30,11 +30,16 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
       flash[:notice] = "予約に成功しました"
-      redirect_to reservation_path @reservation.id
+      redirect_to reservation_path (@reservation)
     else
       flash.now[:alert] = "予約に失敗しました"
-      render :new
+      render "reservations/new"
     end
+  end
+
+  def edit
+    @cars = Car.all
+    @reservation = Reservation.find(params[:id])
   end
 
   def destroy

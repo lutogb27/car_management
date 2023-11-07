@@ -5,7 +5,7 @@
     </div>
     <div class="col-12 mt-3 content">
       <%= form_with model: @reservation, local: true, class: 'form' do |form| %>
-      <%= render 'layouts/error_messages', model: form.object %>
+      <%= render 'shared/error_messages', object: form.object %>
       <div class="day form-group">
         <%= form.label :day, '日付' %>
         <%= form.text_field :day, class: 'form-control', value: @day, readonly: true %>
