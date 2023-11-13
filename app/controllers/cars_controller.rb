@@ -26,7 +26,6 @@ class CarsController < ApplicationController
   def show
     @user = current_user
     @car = Car.find(params[:id])
-    @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
   end
 
   def edit
