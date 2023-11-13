@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  get 'reservations/index'
+  get 'users/show'
   get 'cars/index'
-  get 'cars/new'
   devise_for :users
   root to: 'homes#top'
   post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
-  get 'users/show'
   resources :users
   resources :cars
-  resources :reservations
+  resources :reservations do
+    collection do
+    post 'confirm'
+    end
+  end
 end

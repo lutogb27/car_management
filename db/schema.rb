@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2023_10_08_135914) do
     t.string "user_id"
     t.string "car_id"
     t.date "start_time"
-    t.date "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -7,10 +7,10 @@
             <% @cars.each do |car| %>
               <tr>
                 <th><%= car.car_name %></th>
-                <td class="car_detail"><%= link_to "予約" , reservations_index_path %></td>
+                <td class="car_detail"><%= link_to "予約" , car_path(car.id) %></td>
               </tr>
             <% end %>
-            <td class="car_detail"><%= link_to "新規登録" , cars_new_path %></td>
+            <td class="car_detail"><%= link_to "新規登録" , new_car_path %></td>
           </thead>
         <% else %>
           <tr colspan="9">現在登録している車両はありません</br>登録してください</tr>

@@ -2,7 +2,6 @@ class CarsController < ApplicationController
   def index
     @date1 = Date.current.strftime('%Y/%m/%d')
     @user = current_user
-    @user = User.find(current_user.id)
     @cars = current_user.cars
   end
 
@@ -27,7 +26,7 @@ class CarsController < ApplicationController
   def show
     @user = current_user
     @car = Car.find(params[:id])
-    @reservation = Reservation.new
+    @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
   end
 
   def edit

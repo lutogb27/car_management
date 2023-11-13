@@ -3,25 +3,30 @@ class ReservationsController < ApplicationController
 
   def index
     @user = current_user
-    @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
+    @reservations = Reservation.all
   end
 
   def new
-    @user = current_user
+    @user = User.find(params[:user_id])
+    @car = Car.find(params[:car_id])
     @reservation = Reservation.new
+  end
+
+  def show
+    @reservation = Reservation.find_by(id: params[:id])
+  end
+
+  def confirm
+    @user = current_user
+    @car = Car.find(params[:car_id])
     @day = params[:day]
     @time = params[:time]
+    @reservation = Reservation.new(reservation_params)
     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
     message = Reservation.check_reservation_day(@day.to_date)
     if !!message
       redirect_to @reservation, flash: { alert: message }
     end
-  end
-
-  def show
-    @user = current_user
-    @car = @reservation.car
-    @reservations = Reservation.all
   end
 
   def create
@@ -56,6 +61,6 @@ class ReservationsController < ApplicationController
 
   private
   def reservation_params
-    params.require(:reservation).permit(:day, :time, :car_id, :user_id, :start_time, :end_time)
+    params.require(:reservation).permit(:day, :time, :car_id, :user_id, :start_time)
   end
 end

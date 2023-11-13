@@ -3,7 +3,6 @@ class Reservation < ApplicationRecord
   belongs_to :car,optional: true
 
   validates :start_time, presence: { message: "項目を入力してください" }
-  validates :end_time, presence: { message: "項目を入力してください" }
 
   def self.reservations_after_three_month
     # 今日から3ヶ月先までのデータを取得
