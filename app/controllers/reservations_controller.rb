@@ -3,11 +3,12 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
+    @car = Car.find(params[:id])
   end
 
   def new
     @user = current_user
-    @car = Car.find(params[:reservation][:car_id])
+    @car = Car.find(params[:id])
     @reservation = Reservation.new
     @day = params[:day]
     @time = params[:time]
@@ -20,10 +21,12 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
+    @car = Car.find(params[:id])
   end
 
   def create
     @user = current_user
+    @car = Car.find(params[:id])
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
       flash[:notice] = "予約に成功しました"
@@ -40,6 +43,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     @user = current_user
+    @car = Car.find(params[:id])
     @reservation = Reservation.find(params[:id])
     if @reservation.destroy
       flash[:success] = "予約を削除しました。"
