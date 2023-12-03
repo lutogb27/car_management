@@ -7,10 +7,7 @@
             <% @cars.each do |car| %>
               <tr>
                 <th><%= car.car_name %></th>
-                <%= form_with model: @reservation, method: :post , url: reservations_index_path, local: true do |f| %>
-                  <%= f.hidden_field :car_id, value: @car.id %>
-                  <td class="car_detail"><%= link_to "予約" , reservations_index_path %></td>
-                <% end %>
+                <td><%= link_to "予約" , reservations_index_path(id: car.id) %></td>
               </tr>
             <% end %>
             <td class="car_detail"><%= link_to "新規登録" , new_car_path %></td>
