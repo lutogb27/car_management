@@ -8,7 +8,6 @@ class ReservationsController < ApplicationController
 
   def new
     @user = current_user
-    @car = Car.find(params[:id])
     @reservation = Reservation.new
     @day = params[:day]
     @time = params[:time]
@@ -20,6 +19,7 @@ class ReservationsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @reservation = Reservation.find(params[:id])
     @car = Car.find(params[:id])
   end

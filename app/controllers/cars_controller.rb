@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   def index
     @date1 = Date.current.strftime('%Y/%m/%d')
     @user = current_user
-    @cars = current_user.cars
+    @cars = Car.all
   end
 
   def new

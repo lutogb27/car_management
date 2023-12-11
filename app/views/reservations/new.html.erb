@@ -14,7 +14,7 @@
           <%= form.label :time, '時間' %>
           <%= form.text_field :time, class: 'form-control', value: @time, readonly: true %>
         </div>
-        <%= form.hidden_field :current_user.id, value: @user.id %>
+        <%= form.hidden_field :user_id, value: @user.id %>
         <%= form.hidden_field :car_id, value: @car.id %>
         <%= form.hidden_field :start_time, value: @start_time %>
         <div class="submit">
