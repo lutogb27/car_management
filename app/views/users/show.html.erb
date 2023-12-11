@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 title">
+      <h1>マイページ</h1>
+    </div>
+    <div class="col-12 mt-3 content">
+      <div>
+        <label><strong>名前：</strong></label>
+        <p style="display:inline;"><%= @user.name %></p>
+      </div>
+      <div>
+        <label><strong>メールアドレス：</strong></label>
+        <p style="display:inline;"><%= @user.email %></p>
+      </div>
+      <div class="col-12 mt-3 mx-auto">
+        <h3>予約一覧</h3>
+        <table class="table_show">
+          <thead>
+            <tr>
+              <th scope="col">予約日</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if @user_reservation == true %>
+              <% @user_reservations.each do |user_reservation| %>
+                <tr>
+                  <td>
+                    <%= user_reservation.day %>
+                    <%= user_reservation.time %>              
+                  </td>
+                  <td>
+                    <%= link_to '削除', reservation_path(user_reservation.id), method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+                  </td>
+                </tr>
+              <% end %>            
+            <% else %>
+              <tr>
+                <td>予約はありません。</td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

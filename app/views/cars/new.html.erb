@@ -1,0 +1,25 @@
+<div class="cover_car">
+  <div class="car_text-center">
+  <h3>新規施設登録</h3>
+    <div>
+      <%= form_with model: @car do |f| %>
+        <table class="car_new">
+          <tr>
+            <th><%= f.label :car_name ,"車両名" %></th>
+            <td><%= f.text_field :car_name %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :introduction ,"メモ" %></th>
+            <td><%= f.text_area :introduction %></td>
+          </tr>
+        </table>
+        <div>
+          <ul>
+            <li><%= f.submit "登録完了する", class: 'car_detail'%></li>
+            <li class="car_detail"><%= link_to "キャンセル",:back, class: "button" %></li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+// Place all the styles related to the homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.title {
+  font-family: cursive;
+}
+
+.sub-title {
+  font-family: serif;
+  font-size: 150%;
+}
+
+.cover {
+  height: 100%;
+  width: 100%;
+  display: table;
+  background-image: url(/assets/car.jpg);
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: lighten;
+  background-size: 100% 100%;
+}
+
+.text-center {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.text-center h1 {
+  font-size: 450%;
+}
+
+.btn-success {
+  color: #000000;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+.btn-success a {
+  color: #000000;
+}
+
+.btn-primary {
+  color: #000000;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+.btn-primary a {
+  color: #000000;
+}

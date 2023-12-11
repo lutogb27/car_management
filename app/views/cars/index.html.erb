@@ -1,0 +1,22 @@
+<div class="cover_car">
+  <div class="car_text-center">
+    <div><%= @date1 %></div>
+      <table class="car_new">
+        <% if @cars.count > 0 %>
+          <thead>
+            <% @cars.each do |car| %>
+              <tr>
+                <th><%= car.car_name %></th>
+                <td><%= link_to "予約" , reservations_index_path(id: car.id) %></td>
+              </tr>
+            <% end %>
+            <td class="car_detail"><%= link_to "新規登録" , new_car_path %></td>
+          </thead>
+        <% else %>
+          <tr colspan="9">現在登録している車両はありません</br>登録してください</tr>
+          <td class="car_detail"><%= link_to "詳細" , cars_new_path %></td>
+        <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>

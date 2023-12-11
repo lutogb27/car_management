@@ -1,0 +1,25 @@
+// Place all the styles related to the Reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.container_reservation {
+  height: 150%;
+  width: 100%;
+  display: table;
+  background-color: #f3f3ee;
+  background-blend-mode: lighten;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.row_reservation {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 30px;
+  height: 50px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
